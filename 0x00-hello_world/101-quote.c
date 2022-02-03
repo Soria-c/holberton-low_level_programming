@@ -1,9 +1,43 @@
 #include <stdio.h>
 
+
+/**
+ * func - Cotinuarion fo chars
+ *
+ * Return: Does not return
+ */
+
+void func(void)
+{
+	putchar(111);
+	putchar(114);
+	putchar(97);
+	putchar(32);
+	putchar(75);
+	putchar(111);
+	putchar(114);
+	putchar(112);
+	putchar(97);
+	putchar(114);
+	putchar(44);
+	putchar(32);
+	putchar(50);
+	putchar(48);
+	putchar(49);
+	putchar(53);
+	putchar(45);
+	putchar(49);
+	putchar(48);
+	putchar(45);
+	putchar(49);
+	putchar(57);
+	putchar(10);
+}
+
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 1 (error)
  */
 int main(void)
 {
@@ -43,28 +77,6 @@ int main(void)
 	putchar(45);
 	putchar(32);
 	putchar(68);
-	putchar(111);
-	putchar(114);
-	putchar(97);
-	putchar(32);
-	putchar(75);
-	putchar(111);
-	putchar(114);
-	putchar(112);
-	putchar(97);
-	putchar(114);
-	putchar(44);
-	putchar(32);
-	putchar(50);
-	putchar(48);
-	putchar(49);
-	putchar(53);
-	putchar(45);
-	putchar(49);
-	putchar(48);
-	putchar(45);
-	putchar(49);
-	putchar(57);
-	putchar(10);
+	func();
 	return (1);
 }
