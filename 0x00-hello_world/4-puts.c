@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-/** 
- * C program that prints a custom string
+/**
+ *main - main function
+ *Return: If main is succesful it returns 0
  */
 int main(void)
 {
