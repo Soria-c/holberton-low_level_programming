@@ -2,11 +2,10 @@
 
 
 /**
- * func - Cotinuarion fo chars
+ * func - Cotinuation fo chars
  *
  * Return: Does not return
  */
-
 void func(void)
 {
 	putchar(111);
