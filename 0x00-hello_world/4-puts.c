@@ -1,6 +1,8 @@
 #include <stdio.h>
 
-/* C program that prints a custom string */
+/** 
+ * C program that prints a custom string
+ */
 int main(void)
 {
 
