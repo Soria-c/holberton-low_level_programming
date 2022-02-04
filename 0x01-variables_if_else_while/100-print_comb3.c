@@ -25,16 +25,14 @@ int main(void)
 
 			putchar(counter);
 			putchar(counter2);
-			if (counter < 56)
-			{
-				putchar(44);
-				putchar(32);
-			}
-			else if (counter == 56)
+			if (counter == 56)
 			{
 				putchar(10);
+				break;
 			}
 
+			putchar(44);
+			putchar(32);
 			counter2++;
 		}
 		counter++;
