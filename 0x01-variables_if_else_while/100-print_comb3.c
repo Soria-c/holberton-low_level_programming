@@ -7,22 +7,15 @@
  */
 int main(void)
 {
-	short counter = 48;
-	short counter2;
-	short counter3 = 0;
-	unsigned int base = 10;
+	unsigned short counter = 48;
+	unsigned short counter2;
+	unsigned short base = 10;
 
 	while (base > 0)
 	{
-		counter2 = 48 + counter3;
+		counter2 = counter + 1;
 		while (counter2 != 58)
 		{
-			if (counter == counter2)
-			{
-				counter2++;
-				continue;
-			}
-
 			putchar(counter);
 			putchar(counter2);
 			if (counter == 56)
@@ -36,7 +29,6 @@ int main(void)
 			counter2++;
 		}
 		counter++;
-		counter3++;
 		base--;
 	}
 	return (0);
