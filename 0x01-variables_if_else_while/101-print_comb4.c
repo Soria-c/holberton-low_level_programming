@@ -9,7 +9,7 @@ int main(void)
 {
 	unsigned short counter = 48;
 	unsigned short counter2;
-	unsigned short counter3; 
+	unsigned short counter3;
 	unsigned short base = 10;
 
 	while (base > 0)
