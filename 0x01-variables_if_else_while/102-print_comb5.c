@@ -46,4 +46,6 @@ int main(void)
 		}
 		count1++;
 	}
+	return (0);
 }
+
