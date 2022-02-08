@@ -1,12 +1,13 @@
-#include "main.h"
-
 /**
- * main - calls alphabet function
+ * print_alphabet - prints the alphabet plus a new line
  *
- * Return: 0 when successful
  */
-int main(void)
+
+void print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	char alphabet;
+
+	for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
+		_putchar(alphabet);
+	_putchar('\n');
 }
