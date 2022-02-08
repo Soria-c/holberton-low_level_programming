@@ -15,9 +15,9 @@ void print_alphabet(void)
 		if (alphabet == '{')
 		{
 			alphabet = '\n';
-			_putchar(alphabet);
-			break;
 		}
 		_putchar(alphabet);
+		if (alphabet == '\n')
+			break;
 	}
 }
