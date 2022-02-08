@@ -6,7 +6,7 @@
 int _putchar(char c);
 
 /**
- * times_table - prints the 9 times table
+	 * times_table - prints the 9 times table
  */
 
 void times_table(void)
@@ -32,27 +32,29 @@ void times_table(void)
 				if (j == 9)
 				{
 					_putchar(' ');
+					_putchar(' ');
 					_putchar('0' + b);
 				}
 				else
 				{
 					_putchar(' ');
+					_putchar(' ');
 					_putchar('0' + b);
 					_putchar(',');
-					_putchar(' ');
 				}
 			}
 			else if (j == 9)
 			{
+				_putchar(' ');	
 				_putchar('0' + a);
 				_putchar('0' + b);
 			}
 			else
-			{
+			{	
+				_putchar(' ');
 				_putchar('0' + a);
 				_putchar('0' + b);
 				_putchar(',');
-				_putchar(' ');
 			}
 		}
 		_putchar('\n');
