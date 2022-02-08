@@ -14,7 +14,7 @@ int _putchar(char c);
 
 int print_last_digit(int x)
 {
-	char l;
+	int l;
 
 	if (x < 0)
 		x = x * -1;
