@@ -4,6 +4,8 @@
  *
  */
 
+int _putchar(char c);
+
 void print_putchar(void)
 {
 	_putchar('_');
@@ -16,3 +18,4 @@ void print_putchar(void)
 	_putchar('r');
 	_putchar('\n');
 }
+
