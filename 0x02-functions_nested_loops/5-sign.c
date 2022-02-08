@@ -1,10 +1,15 @@
 /**
+ * _putchar - prints char
+ * @c: char input
+ * Return: int
+ */
+int _putchar(char c);
+
+/**
  * print_sign - checks sign of an integer
  * @n: integer input
  * Return: 1 if positive, -1 if negative, 0 if 0
  */
-
-int _putchar(char c);
 
 int print_sign(int n)
 {
@@ -23,4 +28,4 @@ int print_sign(int n)
 		_putchar('0');
 		return (0);
 	}
-}	
+}
