@@ -45,12 +45,12 @@ void times_table(void)
 			}
 			else if (j == 9)
 			{
-				_putchar(' ');	
+				_putchar(' ');
 				_putchar('0' + a);
 				_putchar('0' + b);
 			}
 			else
-			{	
+			{
 				_putchar(' ');
 				_putchar('0' + a);
 				_putchar('0' + b);
