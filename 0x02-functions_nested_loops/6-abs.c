@@ -1,16 +1,13 @@
 /**
- * print_sign - checks sign of an integer
- * @n: integer input
- * Return: 1 if positive, -1 if negative, 0 if 0
+ * _abs - checks sign of an integer
+ * @x: integer input
+ * Return: Absolute value of 'x' as int
  */
 
-int _abs(int x) 
+int _abs(int x)
 {
 	if (x < 0)
-	{
-		int y = x * (-1);
-		return (y);
-	}
+		return (x * -1);
 	else
 		return (x);
 }
