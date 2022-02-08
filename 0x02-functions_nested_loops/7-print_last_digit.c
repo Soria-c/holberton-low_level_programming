@@ -15,8 +15,8 @@ int _putchar(char c);
 int print_last_digit(int x)
 {
 	long int l;
+
 	l = x;
-	
 	if (l < 0)
 		l = l * -1;
 	l = l % 10;
