@@ -1,12 +1,11 @@
-#include "_putchar.c"
 /**
- * print_putchar - prints "_putchar"
+ * main - prints "_putchar"
  *
  */
 
 int _putchar(char c);
 
-void print_putchar(void)
+int main(void)
 {
 	_putchar('_');
 	_putchar('p');
@@ -17,5 +16,5 @@ void print_putchar(void)
 	_putchar('a');
 	_putchar('r');
 	_putchar('\n');
+	return (0);
 }
-
