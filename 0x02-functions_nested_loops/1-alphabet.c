@@ -1,7 +1,10 @@
 /**
- * print_alphabet - prints the alphabet plus a new line
- *
+ * print_alphabet - prints "_putchar"
+ * @c: input character
+ * Return: prints a char
  */
+
+int _putchar(char c);
 
 void print_alphabet(void)
 {
