@@ -5,6 +5,7 @@
 #include "1-alphabet.c"
 #include "2-print_alphabet_x10.c"
 #include "3-islower.c"
+#include "4-isalpha.c"
 
 int _putchar(char c);
 
@@ -27,10 +28,21 @@ void print_alphabet(void);
 void print_alphabet_x10(void);
 
 /**
- * islower - checks if a character is in lower case
-│* @c: char input
-│* Return: 1 if lower case, 0 otherwise
+ * _islower - checks if a character is in lower case
+ *@c: char input
+ *
+ * Return: 1 if lower case, 0 otherwise
  */
 int _islower(char c);
+
+/**
+ * _isalpha - checks if a character is alpha
+│*@c: char input
+│*
+│* Return: 1 if alphabetic, 0 otherwise
+*/
+
+
+int _isalpha(char c);
 
 #endif /* _MAIN_H_ */
