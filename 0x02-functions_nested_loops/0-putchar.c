@@ -1,6 +1,7 @@
 /**
  * main - prints "_putchar"
- *
+ * @c: input character
+ * Return: 0 if successful
  */
 
 int _putchar(char c);
