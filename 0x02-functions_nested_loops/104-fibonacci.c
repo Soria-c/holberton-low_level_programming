@@ -1,11 +1,17 @@
 #include <stdio.h>
 
 /**
- * main - calls the phi function*
+ * main - calls the phi function
  * @x: integer
  * @y: int one step behind x
  * @i: counter
  * Return: 0 if successful
+ */
+
+/**
+ * @x: integer
+ * @y: int one step behind x
+ * @i: counter
  */
 void phi2(unsigned long x, unsigned long y, int i);
 int main(void)
@@ -16,7 +22,7 @@ int main(void)
 	x = 2;
 	y = 1;
 	z = 0;
-	while (i < 62)
+	while (i < 10)
 	{
 		i++;
 		printf("%lu, ", y);
@@ -28,6 +34,13 @@ int main(void)
 
 	return (0);
 }
+
+/**
+ * phi2 - continuation of the series
+ * @x: integer
+ * @y: int one step behind x
+ * @i: counter
+ */
 void phi2(unsigned long x, unsigned long y, int i)
 {
 	unsigned long x1, x2, x3, y1, y2, y3, z1, z2, z3, exc, exc2;
@@ -42,9 +55,23 @@ void phi2(unsigned long x, unsigned long y, int i)
 	{
 		i++;
 		if (i < 99)
-			printf("%lu%lu%lu, ", y1, y2, y3);
-		else
-			printf("%lu%lu%lu\n", y1, y2, y3);
+		{
+			if (x1 == 0 || x2 == 0)
+			{
+				if (x1 == 0 && x2 == 0)
+				{
+				printf("%lu, ", y3);
+				}
+				else if (x == 0)
+				{
+				printf("%lu%lu, ", y2, y3);
+				}
+			}
+			else
+				printf("%lu%lu%lu, ", y1, y2, y3);
+			}
+			else
+				printf("%lu%lu%lu\n", y1, y2, y3);
 		z1 = x1;
 		z2 = x2;
 		z3 = x3;
