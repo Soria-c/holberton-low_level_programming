@@ -17,8 +17,14 @@ void print_times_table(int n)
 	{
 		int j;
 
-		if (n <= 0 || n > 15)
+		if (n < 0 || n > 15)
 			break;
+		else if (n == 0)
+		{
+			_putchar('0' + n);
+			_putchar('\n');
+			break;
+		}
 
 		for (j = 0; j < n + 1; j++)
 			{
