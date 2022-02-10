@@ -83,10 +83,10 @@ void phi2(unsigned long x, unsigned long y, int i)
 	x1 = x1 / 10000;
 	y2 = y2 + ((y1 % 10000) * 10000);
 	y1 = y1 / 10000;
-	while (i >= 87 && i < 98)
+	while (i >= 87 && i < 96)
 	{
 		i++;
-		if (i < 98)
+		if (i < 96)
 		{
 			if (y2 < 10000000)
 			{
