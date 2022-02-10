@@ -15,13 +15,13 @@ void print_number(int n)
 	unsigned int v = n;
 
 	y = v;
-	for (i = 0; y != 0; i++)
-		y /= 10;
-	if (v < 0)
+	if (n < 0)
 	{
-		v *= -1;
+		v = n * -1;
 		_putchar('-');
 	}
+	for (i = 0; y != 0; i++)
+		y /= 10;
 	if (v == 0)
 		_putchar('0' + v);
 	r = reverse(v, i);
