@@ -12,19 +12,18 @@ unsigned int reverse(unsigned int n, int i);
 void print_number(int n)
 {
 	int y, i, j, x, r;
-	unsigned int v;
+	unsigned int v = n;
 
-	y = n;
+	y = v;
 	for (i = 0; y != 0; i++)
 		y /= 10;
-	if (n < 0)
+	if (v < 0)
 	{
-		n *= -1;
+		v *= -1;
 		_putchar('-');
 	}
-	if (n == 0)
-		_putchar('0' + n);
-	v = n;
+	if (v == 0)
+		_putchar('0' + v);
 	r = reverse(v, i);
 	for (j = 0; j < i; j++)
 	{
