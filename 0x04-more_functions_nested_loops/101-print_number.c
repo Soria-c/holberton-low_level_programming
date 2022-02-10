@@ -8,10 +8,11 @@
  * Return: reversed number
  */
 
-int reverse(int n, int i);
+unsigned int reverse(unsigned int n, int i);
 void print_number(int n)
 {
 	int y, i, j, x, r;
+	unsigned int v;
 
 	y = n;
 	for (i = 0; y != 0; i++)
@@ -23,7 +24,8 @@ void print_number(int n)
 	}
 	if (n == 0)
 		_putchar('0' + n);
-	r = reverse(n, i);
+	v = n;
+	r = reverse(v, i);
 	for (j = 0; j < i; j++)
 	{
 		x = r % 10;
@@ -37,7 +39,7 @@ void print_number(int n)
  * @i: number of digits of input number
  * Return: reversed number
  */
-int reverse(int n, int i)
+unsigned int reverse(unsigned int n, int i)
 {
 	int o, d, j, z, x;
 
