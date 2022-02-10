@@ -8,6 +8,7 @@
 void print_number(int n)
 {
 	int y, i, j, x, o, z;
+	unsigned int m;
 
 	y = n;
 	o = 1;
@@ -22,11 +23,12 @@ void print_number(int n)
 		o *= 10;
 	if (n == 0)
 		_putchar('0' + n);
+	m = n;
 	for (j = 0; j < i; j++)
 	{
-		x = n / o;
+		x = m / o;
 		_putchar('0' + x);
-		n = n % o;
+		m = m % o;
 		o /= 10;
 	}
 }
