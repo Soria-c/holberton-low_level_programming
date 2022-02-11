@@ -2,16 +2,17 @@
 
 int main (void)
 {
-	unsigned long long j;
+	unsigned long int j, min;
+
 	j = 612852475143;
-	while (j % 3 == 0)
+	min = 2;
+	while(min != 4020)
 	{
-		j = j /3;
+		if (j % min != 0)
+			min++;
+		else
+			j = j / min;
 	}
-	while (j % 4019 == 0)
-	{
-		j = j /4019;
-	}
-	printf("%llu", j);
+	printf("%lu\n", j);
 	return (0);
 }
