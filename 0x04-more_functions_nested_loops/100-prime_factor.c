@@ -12,12 +12,12 @@ int main(void)
 
 	j = 612852475143;
 	min = 2;
-	while (min != 4020)
+	while (j != min)
 	{
-		if (j % min != 0)
-			min++;
-		else
+		if (j % min == 0)
 			j = j / min;
+		else
+			min++;
 	}
 	printf("%lu\n", j);
 	return (0);
