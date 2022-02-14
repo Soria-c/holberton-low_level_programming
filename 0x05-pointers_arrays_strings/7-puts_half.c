@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * puts_half - function that prints the second half of a string.
@@ -14,7 +13,6 @@ void puts_half(char *str)
 
 	for (j = 0; *(str + j) != 0; j++)
 		;
-	printf("%d", j);
 	if (j % 2 == 0)
 	{
 		for (i = j / 2; i < j; i++)
