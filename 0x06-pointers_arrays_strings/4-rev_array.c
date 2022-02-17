@@ -1,7 +1,7 @@
 /**
- * reverse_array - function that reverses an array of int
- * @a: input integer array
- * @n: number of elements
+ * reverse_array - function that reverses an array of int.
+ * @a: input integer array.
+ * @n: number of elements.
  */
 
 void reverse_array(int *a, int n)
