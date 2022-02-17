@@ -1,4 +1,7 @@
 #include <stdio.h>
+
+
+void rev_string2(char *r);
 /**
  * infinite_add - function that adds two numbers
  * @n1: input number 1
@@ -10,8 +13,8 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, s, y, x, n, t, d;
-	char z, q, m;
+	int i, j, k, s, t, d;
+	char z, q;
 
 	s = 0;
 	for (d = 0; d < size_r; d++)
@@ -48,7 +51,18 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		*(r + (k - 1)) = '\0';
 	if (k >= size_r)
 		return (0);
-	/*string reverse*/
+	rev_string2(r);
+	return (r);
+}
+/**
+ * rev_string2 - reverses a string
+ * @r: pointer to input string
+ */
+void rev_string2(char *r)
+{
+	int x, y, n;
+	char m;
+
 	x = 0;
 	for (y = 0; *(r + y) != '\0' ; y++)
 		continue;
@@ -62,5 +76,4 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		*(r + x) = m;
 		x++;
 	}
-	return (r);
 }
