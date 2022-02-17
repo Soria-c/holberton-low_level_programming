@@ -10,10 +10,12 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, s, y, x, n, t;
+	int i, j, k, s, y, x, n, t, d;
 	char z, q, m;
 
 	s = 0;
+	for (d = 0; d < size_r; d++)
+		*(r + d) = '\0';
 	for (j = 0; *(n1 + j) != '\0'; j++)
 		continue;
 	for (i = 0; *(n2 + i) != '\0'; i++)
@@ -44,7 +46,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		*(r + (k - 1)) = (s / 10) + '0';
 	else
 		*(r + (k - 1)) = '\0';
-
 	if (k >= size_r)
 		return (0);
 	/*string reverse*/
