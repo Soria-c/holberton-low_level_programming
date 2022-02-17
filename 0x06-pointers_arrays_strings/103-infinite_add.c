@@ -9,7 +9,7 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, s, y, x, n;
+	int i, j, k, s, y, x, n, t;
 	char z, q, m;
 
 	s = 0;
@@ -17,16 +17,18 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		continue;
 	for (i = 0; *(n2 + i) != '\0'; i++)
 		continue;
-
-	for (k = 1; k <= j; k++)
+	t = j;
+	if (i > j)
+		t = i;
+	for (k = 1; k <= t; k++)
 	{
 		if (k + 1 >= size_r)
 			return (0);
 		q = (s / 10);
-		if (k <= i)
+		if (k <= j && t == i)
 			s = (*(n1 + (j - k)) - '0') + (*(n2 + (i - k)) - '0') + q;
-		else
-			s = (*(n1 + (j - k)) - '0') + q;
+		if (k <= i && t == j)
+			s = (*(n1 + (j - k)) - '0') + (*(n2 + (i - k)) - '0') + q;
 		z = s % 10;
 		*(r + (k - 1)) = z + '0';
 	}
