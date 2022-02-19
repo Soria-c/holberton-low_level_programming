@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * reverse_array - function that reverses an array of int.
  * @a: input integer array.
@@ -8,16 +10,18 @@ void reverse_array(int *a, int n)
 {
 	int s, b;
 	int i = 0;
-	for (n = 0; *(a + n) != 0; n++)
-		continue;
-	b = n;
-	if (n % 2 == 0)
-		b--;
-	for (n = n - 1; (n != b / 2); n--)
+
+	if (n > 0)
 	{
-		s = *(a + n);
-		*(a + n) = *(a + i);
-		*(a + i) = s;
-		i++;
+		b = n;
+		if (n % 2 == 0)
+			b--;
+		for (n = n - 1; (n != b / 2); n--)
+		{
+			s = *(a + n);
+			*(a + n) = *(a + i);
+			*(a + i) = s;
+			i++;
+		}
 	}
 }
