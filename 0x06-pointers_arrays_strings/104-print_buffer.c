@@ -20,10 +20,15 @@ void print_buffer(char *b, int size)
 				printf("%.8x: ", k);
 				for (i = 0; i < 10; i += 2)
 				{
-					if (k + i < size || k + i + 1 < size)
-						printf("%.2x%.2x ", b[k + i], b[k + i + 1]);
-					else
-						printf("     ");
+					if (k + i < size)
+						printf("%.2x", b[k + i]);
+					if (k + 1 + i < size)
+						printf("%.2x ", b[k + i + 1]);
+					if (k + i >= size)
+						printf("  ");
+					if (k + 1 + i >= size)
+						printf("   ");
+
 				}
 			}
 			if ((b[k] < 33) && (b[k] != ' '))
