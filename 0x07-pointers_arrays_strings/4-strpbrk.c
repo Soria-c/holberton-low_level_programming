@@ -6,7 +6,7 @@
  */
 
 char *_strpbrk(char *s, char *accept)
-	i
+
 {
 	int i, j, k;
 
