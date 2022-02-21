@@ -17,5 +17,5 @@ void print_diagsums(int *a, int size)
 		sum1 += a[i];
 	for (; i > 0; i -= (size + 1))
 		sum2 += a[i];
-	printf("%d, %d\n", sum2, sum1);
+	printf("%ld, %ld\n", sum2, sum1);
 }
