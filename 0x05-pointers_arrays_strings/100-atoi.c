@@ -6,8 +6,8 @@
 
 int _atoi(char *s)
 {
-	int n, c, j, k;
-	unsigned int i;
+	int n, c;
+	unsigned int i, j, k;
 
 	c = 1;
 	n = 0;
@@ -31,7 +31,7 @@ int _atoi(char *s)
 		else
 			continue;
 	}
-	if (*(s - 1) == '-' || *(s - 3) == '-'1)
+	if (*(s - 1) == '-' || *(s - 3) == '-')
 		n *= -1;
 	if (*(s - 1) == '-' && *(s + i + 1) > 64)
 		n *= -1;
