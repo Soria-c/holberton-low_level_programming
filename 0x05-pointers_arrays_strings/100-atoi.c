@@ -1,20 +1,23 @@
 /**
  * _atoi - Converts a string to an integer.
- * @s: address to s
+ * @s: address to s.
  * Return: integer number from s.
  */
 
 int _atoi(char *s)
 {
-	int c, i, j, k;
+	int c, i, j, k, ss;
 	unsigned int n;
 
 	c = 1;
-	n = 0;
+	n = ss = 0;
 	if (*s == '\0')
 		return (0);
 	for (; (*s > 57 || *s < 48) && *s != '\0'; s++)
-		continue;
+	{
+		if (*s == '-')
+			ss++;
+	}
 	for (i = 0; *(s + i) >= 48 && *(s + i) <= 57; i++)
 		continue;
 	if (i == 0)
@@ -31,9 +34,7 @@ int _atoi(char *s)
 		else
 			continue;
 	}
-	if (*(s - 1) == '-' || *(s - 3) == '-')
-		n *= -1;
-	if (*(s - 1) == '-' && *(s + i + 1) > 64)
+	if (ss % 2 != 0)
 		n *= -1;
 	return (n);
 }
