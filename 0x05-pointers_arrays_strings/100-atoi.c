@@ -6,14 +6,19 @@
 
 int _atoi(char *s)
 {
-	int n, c, i, j, k;
+	int n, c, j, k;
+	unsigned int i;
 
 	c = 1;
 	n = 0;
+	if (*s == '\0')
+		return (0);
 	for (; *s > 57 || *s < 48; s++)
 		continue;
 	for (i = 0; *(s + i) >= 48 && *(s + i) <= 57; i++)
 		continue;
+	if (i == 0)
+		return (0);
 	for (j = 1; j < i; j++)
 		c *= 10;
 	for (k = 0; k < i; k++)
@@ -26,7 +31,7 @@ int _atoi(char *s)
 		else
 			continue;
 	}
-	if (*(s - 1) == '-')
+	if (*(s - 1) == '-' || *(s - 3) == '-'1)
 		n *= -1;
 	if (*(s - 1) == '-' && *(s + i + 1) > 64)
 		n *= -1;
