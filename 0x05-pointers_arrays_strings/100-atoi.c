@@ -6,14 +6,14 @@
 
 int _atoi(char *s)
 {
-	int n, c;
-	unsigned int i, j, k;
+	int c, i, j, k;
+	unsigned int n;
 
 	c = 1;
 	n = 0;
 	if (*s == '\0')
 		return (0);
-	for (; *s > 57 || *s < 48; s++)
+	for (; (*s > 57 || *s < 48) && *s != '\0'; s++)
 		continue;
 	for (i = 0; *(s + i) >= 48 && *(s + i) <= 57; i++)
 		continue;
