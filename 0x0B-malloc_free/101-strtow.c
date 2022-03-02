@@ -1,5 +1,6 @@
 #include <stdlib.h>
-#include <stdio.h>
+
+int count(char *str, int *c);
 /**
  * strtow - Split a string into words.
  * @str: address of input string.
@@ -7,37 +8,18 @@
  */
 char **strtow(char *str)
 {
-	int i, k, j, x, y, c, m;
+	int j, x, y, c, m;
 	char **s;
 
-	c = 0; 
-	m = 0;
+	c = 0;
+
 	if (str == NULL)
 		return (NULL);
 	for (; *str == ' ' && *str != '\0'; str++)
 		continue;
-	if (*str != '\0')
-		c++;
+	m = count(str, &c);
 	if (c == 0)
 		return (NULL);
-	for (; str[m] != ' '; m++)
-		continue;
-	for (i = 1; *(str + i) != '\0'; i++)
-	{
-		if (*(str + i) > 32 && *(str + i - 1) == ' ')
-		{
-			c++;
-			for (k = 0; str[i + k] != ' '; k++)
-			{
-				if (str[i + k] == '\0')
-					break;
-			}
-			if (k > m)
-				m = k;
-		}
-	}
-	
-
 	s = malloc((c - 1) * 8);
 	if (s == NULL)
 		return (NULL);
@@ -61,4 +43,36 @@ char **strtow(char *str)
 	}
 	s[c] = NULL;
 	return (s);
+}
+/**
+ * count - counts number of words and max word size.
+ * @str: address of input string.
+ * @c: address of c (number of words).
+ * Return: max word size.
+ */
+int count(char *str, int *c)
+{
+	int m = 0, i, k;
+
+	for (; *str == ' ' && *str != '\0'; str++)
+		continue;
+	if (*str != '\0')
+		*c = *c + 1;
+	for (; str[m] != ' '; m++)
+		continue;
+	for (i = 1; *(str + i) != '\0'; i++)
+	{
+		if (*(str + i) > 32 && *(str + i - 1) == ' ')
+		{
+			*c = *c + 1;
+			for (k = 0; str[i + k] != ' '; k++)
+			{
+				if (str[i + k] == '\0')
+					break;
+			}
+			if (k > m)
+				m = k;
+		}
+	}
+	return (m);
 }
