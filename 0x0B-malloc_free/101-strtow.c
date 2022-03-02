@@ -41,9 +41,9 @@ char **strtow(char *str)
 	s = malloc((c) * 8);
 	if (s == NULL)
 		return (NULL);
-	for (j = 0; j < c - 1; j++)
+	for (j = 0; j < c; j++)
 	{
-		s[j] = malloc(m);
+		s[j] = malloc(m - 1);
 		if (s[j] == NULL)
 			return (NULL);
 	}
