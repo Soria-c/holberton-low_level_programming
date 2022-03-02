@@ -56,7 +56,6 @@ char **strtow(char *str)
 			s[x][y] = *str;
 			str++;
 		}
-		s[x][y] = '\0';
 		while (*str == ' ')
 			str++;
 	}
