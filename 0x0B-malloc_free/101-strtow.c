@@ -43,7 +43,7 @@ char **strtow(char *str)
 		return (NULL);
 	for (j = 0; j < c; j++)
 	{
-		s[j] = malloc(m);
+		s[j] = malloc(m + 1);
 		if (s[j] == NULL)
 			return (NULL);
 	}
