@@ -1,22 +1,21 @@
 #include <stdlib.h>
-
 /**
- * _calloc - implementation of calloc.
- * @nmemb: number of members of the array.
- * @size: size of each member.
+ * _calloc - allocates memory for an array (implementation of calloc)
+ * @nmemb: number of elements.
+ * @size: size of each element type.
  * Return: pointer to allocated memory.
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *s;
+	char *f;
 	unsigned int i;
 
-	if (nmemb <= 0 || size <= 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-	s = malloc((nmemb + 1) * size);
-	if (s == NULL)
+	f = malloc(nmemb * size);
+	if (f == NULL)
 		return (NULL);
-	for (i = 0; i < nmemb + 1; i++)
-		*(s + i) = 0;
-	return (s);
+	for (i = 0; i < nmemb; i++)
+		*(f + i) = 0;
+	return (f);
 }
