@@ -19,3 +19,4 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		*(f + i) = 0;
 	return (f);
 }
+
