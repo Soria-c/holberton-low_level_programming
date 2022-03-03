@@ -11,10 +11,10 @@ int *array_range(int min, int max)
 	int *c, i, n;
 
 	n = max - min;
-	if (n * 4 + 1 > 2147483647)
-		return (NULL);
 	if (n < 0)
 		n = -n;
+	if (n * 4 + 1 > 2147483647)
+		return (NULL);
 	c = malloc((n * 4) + 1);
 	if (c == NULL || min > max)
 	{
