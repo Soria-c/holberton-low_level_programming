@@ -17,7 +17,7 @@ int *array_range(int min, int max)
 		n2 = (max - min) * -1;
 	else
 		n2 = max - min;
-	c = malloc((n2 * 4) + 1);
+	c = malloc((n2 + 1) * 4);
 	if (c == NULL)
 		return (NULL);
 	for (i = 0; i <= n2; i++)
