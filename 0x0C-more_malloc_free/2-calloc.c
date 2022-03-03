@@ -11,7 +11,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	char *s;
 	unsigned int i;
 
-	if ( nmemb == 0 || size == 0)
+	if ( nmemb <= 0 || size <= 0)
+		return (NULL);
+	if (nmemb * size > 2147483647)
 		return (NULL);
 	s = malloc(nmemb * size);
 	if (s == NULL)
