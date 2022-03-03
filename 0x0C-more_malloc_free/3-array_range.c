@@ -15,7 +15,10 @@ int *array_range(int min, int max)
 		n = -n;
 	c = malloc((n * 4) + 1);
 	if (c == NULL || min > max)
+	{
+		free(c);
 		return (NULL);
+	}
 	for (i = 0; i <= n; i++)
 		*(c + i) = i + min;
 	return (c);
