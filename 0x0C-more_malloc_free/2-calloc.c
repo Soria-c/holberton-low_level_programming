@@ -18,6 +18,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 	for (i = 0; i < nmemb; i++)
-		*(s + i) = 0;
+		*(s + i) = '\0';
 	return (s);
 }
