@@ -51,7 +51,7 @@ void mul(char *argv[])
 	{
 		_putchar('0');
 		_putchar('\n');
-		exit(1);
+		return;
 	}
 	x = 2;
 	y = 1;
@@ -75,7 +75,9 @@ void mul(char *argv[])
 			{
 				z++;
 				num = realloc(num, (z + 1) * 4);
+				num[c + d] = 0;
 			}
+
 			ld2 = (ld + num[c + d] + carry2) % 10;
 			carry2 = (ld + num[c + d] + carry2) / 10;
 			num[c + d] = ld2;
