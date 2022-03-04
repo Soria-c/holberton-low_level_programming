@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "main.h"
 
 void mul(char *argv[]);
 /**
@@ -38,14 +39,20 @@ int main(int argc, char *argv[])
 void mul(char *argv[])
 {
 	int i, j, w, n, k, d, c, z, m, carry, ld, carry2, ld2;
-	int *num, x, y, b;
+	int *num, x, y, b, s1, s2;
 
-	d = z = 0;
+	d = z = s1 = s2 = 0;
 	num = calloc(1, 4);
 	for (i = 0; argv[1][i] != '\0'; i++)
-		continue;
+		s1 += '0' - argv[1][i];
 	for (j = 0; argv[2][j] != '\0'; j++)
-		continue;
+		s2 += '0' - argv[2][j];
+	if (s2 == 0 || s1 == 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+		exit(1);
+	}
 	x = 2;
 	y = 1;
 	if (i > j)
@@ -88,8 +95,7 @@ void mul(char *argv[])
 	if (b == 1)
 		z--;
 	for (; z >= 0; z--)
-		putchar(num[z] + '0');
-	putchar('\n');
+		_putchar(num[z] + '0');
+	_putchar('\n');
 	free(num);
-
 }
