@@ -1,6 +1,6 @@
 #ifndef ABSS_H
 #define ABSS_H
 
-#define ABS(X) ((long)X >= 0L ? ((long)X) : (long)-X)
+#define ABS(x) (((x) >= 0) ? (x) : -(x))
 
 #endif /*ABSS_H*/
