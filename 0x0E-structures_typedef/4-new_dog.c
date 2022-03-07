@@ -31,7 +31,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(d->name);
 			free(d->owner);
 			free(d);
-			return (0);
+			return (NULL);
 		}
 		d->name[i] = name[i];
 	}
@@ -45,7 +45,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(d->name);
 			free(d->owner);
 			free(d);
-			return (0);
+			return (NULL);
 		}
 		d->owner[i] = owner[i];
 	}
