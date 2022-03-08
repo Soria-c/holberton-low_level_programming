@@ -32,7 +32,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (d->owner == NULL)
 	{
 		free(d);
-		free(d->owner);
+		free(d->name);
 		return (NULL);
 	}	
 	strcpy1(d->name, name, i);
@@ -40,11 +40,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 	return (d);
 }
 
-void strcpy1 (char *d, char *s, int i)
+char *strcpy1 (char *d, char *s, int i)
 {	
 	int j;
 
 	for (j = 0; j < i; j++)
 		d[j] = s[j];
 	d[j] = '\0';
+	return (d);
 }
