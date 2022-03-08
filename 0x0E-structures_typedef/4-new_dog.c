@@ -1,7 +1,7 @@
 #include "dog.h"
 #include <stdlib.h>
 
-void strcpy1 (char *d, char *s, int i);
+char *strcpy1 (char *d, char *s, int i);
 /**
  * new_dog - creates and initializes a new instance of dog_t.
  * @name: name of the dog.
