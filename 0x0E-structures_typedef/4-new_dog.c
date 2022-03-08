@@ -1,6 +1,7 @@
 #include "dog.h"
 #include <stdlib.h>
 
+void strcpy1 (char *d, char *s, int i);
 /**
  * new_dog - creates and initializes a new instance of dog_t.
  * @name: name of the dog.
@@ -24,21 +25,26 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(d);
 		return (NULL);
 	}
-	for (j = 0; j < i; j++)
-		d->name[j] = name[j];
-	d->name[j] = '\0';
+	strcpy1(d->name, name, i);
 	d->age = age;
-	for (i = 0; owner[i] != '\0'; i++)
+	for (j = 0; owner[j] != '\0'; j++)
 		;
-	d->owner = malloc(i + 1);
+	d->owner = malloc(j + 1);
 	if (d->owner == NULL)
 	{
 		free(d);
 		free(d->owner);
 		return (NULL);
 	}
-	for (j = 0; j < i; j++)
-		d->owner[j] = owner[j];
-	d->owner[j] = '\0';
+	strcpy1(d->owner, owner, j);
 	return (d);
+}
+
+void strcpy1 (char *d, char *s, int i)
+{	
+	int j;
+
+	for (j = 0; j < i; j++)
+		d[j] = s[j];
+	d[j] = '\0';
 }
