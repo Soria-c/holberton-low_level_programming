@@ -11,44 +11,34 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	struct dog *d;
-	int i;
+	int i, j;
 
 	d = malloc(sizeof(struct dog));
-	d->name = calloc(1, 1);
-	d->owner = calloc(1, 1);
-	if (d == NULL || d->name == NULL || d->owner == NULL)
+	if (d == NULL)
+		return (NULL);
+	for (i = 0; name[i] != '\0'; i++)
+		;
+	d->name = malloc(i + 1);
+	if (d->name == NULL)
 	{
-		free(d->name);
-		free(d->owner);
 		free(d);
 		return (NULL);
 	}
-	for (i = 0; *(name + i) != '\0'; i++)
-	{
-		d->name = realloc(d->name, 2 + i);
-		if (d->name == NULL)
-		{
-			free(d->name);
-			free(d->owner);
-			free(d);
-			return (NULL);
-		}
-		d->name[i] = name[i];
-	}
-	d->name[i] = '\0';
+	for (j = 0; j < i; j++)
+		d->name[j] = name[j];
+	d->name[j] = '\0';
 	d->age = age;
-	for (i = 0; *(owner + i) != '\0'; i++)
+	for (i = 0; owner[i] != '\0'; i++)
+		;
+	d->owner = malloc(i + 1);
+	if (d->owner == NULL)
 	{
-		d->owner = realloc(d->owner, 2 + i);
-		if (d->owner == NULL)
-		{
-			free(d->name);
-			free(d->owner);
-			free(d);
-			return (NULL);
-		}
-		d->owner[i] = owner[i];
+		free(d);
+		free(d->owner);
+		return (NULL);
 	}
-	d->owner[i] = '\0';
+	for (j = 0; j < i; j++)
+		d->owner[j] = owner[j];
+	d->owner[j] = '\0';
 	return (d);
 }
