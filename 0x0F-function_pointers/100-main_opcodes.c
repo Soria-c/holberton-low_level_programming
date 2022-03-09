@@ -25,9 +25,8 @@ int main(int argc, char **argv)
 	}
 	for (i = 0; i < n; i++)
 	{
-		if (*(char *)(p + i) != 0)
-			printf("%02hhx ", *(char *)(p + i));
+		printf("%02hhx", *(char *)(p + i));
+		printf("%c", (i < n - 1) ? ' ' : '\n');
 	}
-	printf("\n");
 	return (0);
 }
