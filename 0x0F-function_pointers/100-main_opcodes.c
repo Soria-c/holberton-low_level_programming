@@ -24,7 +24,10 @@ int main(int argc, char **argv)
 		exit(2);
 	}
 	for (i = 0; i < n; i++)
-		printf("%02hhx ", *(char *)(p + i));
+	{
+		if (*(char *)(p + i) != 0)
+			printf("%02hhx ", *(char *)(p + i));
+	}
 	printf("\n");
 	return (0);
 }
