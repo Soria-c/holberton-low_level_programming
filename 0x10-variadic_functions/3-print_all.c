@@ -10,48 +10,41 @@
 
 void print_all(const char * const format, ...)
 {
-	int i, bl, j, ff;
+	int i, bl;
 	va_list args;
 	char *cn;
-	char ch[] = {'i', 'c', 'f', 's'};
 
 	va_start(args, format);
-	i = bl = ff = 0;
-	while ((format[i] != '\0') && format)
+	i = 0;
+	if (!format)
+		return;
+	while (format[i])
 	{
-		j = 0;
-		while (j < 4 && ff == 1)
-		{
-			if (format[i] == ch[j])
-				printf(", ");
-			j++;
-		}
+		bl = 0;
 		switch (format[i])
 		{
 			case 'i':
 				printf("%d", va_arg(args, int));
-				ff = 1;
 				break;
 			case 'c':
 				printf("%c", va_arg(args, int));
-				ff = 1;
 				break;
 			case 'f':
 				printf("%f", va_arg(args, double));
-				ff = 1;
 				break;
 			case 's':
 				cn = va_arg(args, char *);
-				ff = 1;
 				if (!cn)
 					cn = "(nil)";
 				printf("%s", cn);
 				break;
 			default:
+				bl = 1;
 				break;
 		}
 		i++;
+		if (!bl && format[i])
+			printf(", ");
 	}
-	va_end(args);
 	printf("\n");
 }
