@@ -5,7 +5,7 @@
  * print_numbers - prints all the integers in optional parameters.
  * @separator: address of string to be used as a separator.
  * @n: number of parameters to be printed.
- * Return: sum.
+ * Return: nothing.
  */
 
 void print_numbers(const char *separator, const unsigned int n, ...)
