@@ -6,7 +6,6 @@
  * @n: number of parameters to be sum.
  * Return: sum, 0 if n = 0.
  */
-
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list args;
