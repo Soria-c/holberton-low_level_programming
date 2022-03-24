@@ -46,11 +46,11 @@ unsigned int binary_to_uint(const char *b)
 	if (!b)
 		return (0);
 	b2 = (char *)b;
-	for (; *b2 != '1'; b2++)
-		;
 	l2 = str_len_c((char *)b);
 	if (!l2)
 		return (0);
+	for (; *b2 != '1'; b2++)
+		;
 	l = str_len_c(b2);
 	for (i = 0; i < l; i++, b2++)
 		n += (po_w(2, l - 1 - i)) * (*b2 - '0');
