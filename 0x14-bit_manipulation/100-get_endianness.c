@@ -4,10 +4,8 @@
  */
 int get_endianness(void)
 {
-	char *e = "Test";
+	int i = 1;
+	char *e = (char *)&i;
 
-	if (&e[0] < &e[1])
-		return (1);
-	else
-		return (0);
+	return (*e);
 }
