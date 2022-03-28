@@ -53,7 +53,7 @@ void file_copy(char *file_from, char *file_to)
 	if (fd2 == -1)
 		errorr(99, file_to, buff);
 	r = read(fd1, buff, 1024);
-	if (r == -1 || !buff)
+	if (r == -1)
 		errorr(98, file_from, buff);
 	r = write(fd2, buff, r);
 	if (r == -1)
