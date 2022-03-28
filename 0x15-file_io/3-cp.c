@@ -9,7 +9,8 @@
  */
 void errorr(int e, char *s, char *buff)
 {
-	free(buff);
+	if (buff)
+		free(buff);
 	if (e == 98)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", s);
