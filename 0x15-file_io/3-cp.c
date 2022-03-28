@@ -37,7 +37,7 @@ void file_copy(const char *file_from, const char *file_to)
 {
 	int fd1, fd2, c1, c2;
 	ssize_t r, r2;
-	char buff[1024];
+	char buff[512];
 
 	fd1 = open(file_from, O_RDONLY);
 	if (fd1 == -1)
@@ -48,8 +48,8 @@ void file_copy(const char *file_from, const char *file_to)
 		close(fd1);
 		errorr(99, file_to);
 	}
-	r = read(fd1, buff, 1024);
-	for (; r; r = read(fd1, buff, 1024))
+	r = read(fd1, buff, 512);
+	for (; r; r = read(fd1, buff, 512))
 	{
 		if (r == -1)
 			errorr(98, file_from);
