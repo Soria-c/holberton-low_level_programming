@@ -6,6 +6,7 @@
  * errorr - prints an error and exits the program.
  * @e: number of exit status.
  * @s: name of the file which produced the error.
+ * @buff: buffer.
  */
 void errorr(int e, char *s, char *buff)
 {
@@ -25,6 +26,7 @@ void errorr(int e, char *s, char *buff)
 /**
  * errorfd - prints an error and exits the program.
  * @fd: file descriptor.
+ * @buff: buffer.
  */
 void errorfd(int fd, char *buff)
 {
@@ -48,10 +50,10 @@ void file_copy(char *file_from, char *file_to)
 	if (fd1 == -1)
 		errorr(98, file_from, buff);
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 00664);
-	if (fd2 == -1 || !buff)
+	if (fd2 == -1)
 		errorr(99, file_to, buff);
 	r = read(fd1, buff, 1024);
-	if (r == -1)
+	if (r == -1 || !buff)
 		errorr(98, file_from, buff);
 	r = write(fd2, buff, r);
 	if (r == -1)
