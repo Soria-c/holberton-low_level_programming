@@ -45,7 +45,7 @@ void file_copy(const char *file_from, const char *file_to)
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 	{
-		close(fd1)
+		close(fd1);
 		errorr(99, file_to);
 	}
 	r = read(fd1, buff, 1024);
