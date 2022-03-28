@@ -51,7 +51,7 @@ void file_copy(const char *file_from, const char *file_to)
 		if (r == -1)
 			errorr(98, file_from);
 		r2 = write(fd2, buff, r);
-		if (r2 == -1 || r2)
+		if (r2 == -1)
 			errorr(99, file_to);
 
 	}
