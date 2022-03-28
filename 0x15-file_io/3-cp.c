@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <sys/stat.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -44,16 +43,19 @@ void file_copy(const char *file_from, const char *file_to)
 	fd1 = open(file_from, O_RDONLY);
 	if (fd1 == -1)
 		errorr(98, file_from);
-	umask(0000);
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 		errorr(99, file_to);
 	r = read(fd1, buff, 1024);
-	if (r == -1)
-		errorr(98, file_from);
-	r2 = write(fd2, buff, r);
-	if (r2 == -1)
-		errorr(99, file_to);
+	for (; r; r = read(fd1, buff, 1024))
+	{
+		if (r == -1)
+			errorr(98, file_from);
+		r2 = write(fd2, buff, r);
+		if (r2 == -1)
+			errorr(99, file_to);
+
+	}
 	r = close(fd1);
 	r2 = close(fd2);
 	if (r2 == -1)
