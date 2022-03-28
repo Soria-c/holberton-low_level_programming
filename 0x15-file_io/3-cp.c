@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <sys/stat.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -7,7 +8,7 @@
  * @e: number of exit status.
  * @s: name of the file which produced the error.
  */
-void errorr(int e, char *s)
+void errorr(int e, const char *s)
 {
 	if (e == 98)
 	{
@@ -34,7 +35,7 @@ void errorfd(int fd)
  * @file_from: name of the file from which the content will be copied.
  * @file_to: file to copy the content.
  */
-void file_copy(char *file_from, char *file_to)
+void file_copy(const char *file_from, const char *file_to)
 {
 	int fd1, fd2;
 	ssize_t r, r2;
@@ -43,6 +44,7 @@ void file_copy(char *file_from, char *file_to)
 	fd1 = open(file_from, O_RDONLY);
 	if (fd1 == -1)
 		errorr(98, file_from);
+	umask(0000);
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 		errorr(99, file_to);
