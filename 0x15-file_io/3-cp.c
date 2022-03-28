@@ -11,12 +11,12 @@ void errorr(int e, const char *s)
 {
 	if (e == 98)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", s);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
 		exit(98);
 	}
 	if (e == 99)
 	{
-		dprintf(2, "Error: Can't write to %s\n", s);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
 		exit(99);
 	}
 }
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	file_copy(argv[1], argv[2]);
