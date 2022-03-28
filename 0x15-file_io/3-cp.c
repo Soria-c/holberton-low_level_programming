@@ -12,12 +12,12 @@ void errorr(int e, char *s, char *buff)
 	free(buff);
 	if (e == 98)
 	{
-		dprintf(2, "Error: Can't read from file %s", s);
+		dprintf(2, "Error: Can't read from file %s\n", s);
 		exit(98);
 	}
 	if (e == 99)
 	{
-		dprintf(2, "Error: Can't write to %s", s);
+		dprintf(2, "Error: Can't write to %s\n", s);
 		exit(99);
 	}
 }
@@ -27,7 +27,7 @@ void errorr(int e, char *s, char *buff)
  */
 void errorfd(int fd, char *buff)
 {
-	dprintf(2, "Error: Can't close fd %d", fd);
+	dprintf(2, "Error: Can't close fd %d\n", fd);
 	free(buff);
 	exit(100);
 }
