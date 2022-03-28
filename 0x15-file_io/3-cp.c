@@ -35,7 +35,7 @@ void errorfd(int fd)
  */
 void file_copy(const char *file_from, const char *file_to)
 {
-	int fd1, fd2;
+	int fd1, fd2, c1, c2;
 	ssize_t r, r2;
 	char buff[1024];
 
@@ -52,27 +52,19 @@ void file_copy(const char *file_from, const char *file_to)
 	for (; r; r = read(fd1, buff, 1024))
 	{
 		if (r == -1)
-		{
-			close(fd1);
-			close(fd2);
 			errorr(98, file_from);
-		}
 		r2 = write(fd2, buff, r);
-		if (r2 == -1 || r2 != r)
-		{
-			close(fd1);
-			close(fd2);
+		if (r2 == -1)
 			errorr(99, file_to);
-		}
 
 	}
-	r = close(fd1);
-	r2 = close(fd2);
-	if (r == -1 || r2 == -1)
+	c1 = close(fd1);
+	c2 = close(fd2);
+	if (c1 == -1 || c2 == -1)
 	{
-		if (r2 == -1)
+		if (c2 == -1)
 			errorfd(fd2);
-		if (r == -1)
+		if (c1 == -1)
 			errorfd(fd1);
 		exit(100);
 	}
