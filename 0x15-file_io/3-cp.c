@@ -43,7 +43,7 @@ void file_copy(char *file_from, char *file_to)
 	fd1 = open(file_from, O_RDONLY);
 	if (fd1 == -1)
 		errorr(98, file_from);
-	fd2 = open(file_to, O_TRUNC | O_RDWR | O_CREAT, 00664);
+	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 		errorr(99, file_to);
 	r = read(fd1, buff, 1024);
@@ -55,9 +55,9 @@ void file_copy(char *file_from, char *file_to)
 	r = close(fd1);
 	r2 = close(fd2);
 	if (r2 == -1)
-		errorfd(fd1);
-	if (r == -1)
 		errorfd(fd2);
+	if (r == -1)
+		errorfd(fd1);
 }
 /**
  * main - checks number of arguments
