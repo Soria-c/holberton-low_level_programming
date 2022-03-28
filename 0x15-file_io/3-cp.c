@@ -7,8 +7,9 @@
  * @e: number of exit status.
  * @s: name of the file which produced the error.
  */
-void errorr(int e, char *s)
+void errorr(int e, char *s, char *buff)
 {
+	free(buff);
 	if (e == 98)
 	{
 		dprintf(2, "Error: Can't read from file %s", s);
@@ -24,9 +25,10 @@ void errorr(int e, char *s)
  * errorfd - prints an error and exits the program.
  * @fd: file descriptor.
  */
-void errorfd(int fd)
+void errorfd(int fd, char *buff)
 {
 	dprintf(2, "Error: Can't close fd %d", fd);
+	free(buff);
 	exit(100);
 }
 /**
@@ -41,24 +43,24 @@ void file_copy(char *file_from, char *file_to)
 	char *buff;
 
 	fd1 = open(file_from, O_RDONLY);
-	if (fd1 == -1)
-		errorr(98, file_from);
-	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 00664);
 	buff = malloc(1024);
+	if (fd1 == -1)
+		errorr(98, file_from, buff);
+	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 00664);
 	if (fd2 == -1 || !buff)
-		errorr(99, file_to);
+		errorr(99, file_to, buff);
 	r = read(fd1, buff, 1024);
 	if (r == -1)
-		errorr(98, file_from);
+		errorr(98, file_from, buff);
 	r = write(fd2, buff, r);
 	if (r == -1)
-		errorr(99, file_to);
+		errorr(99, file_to, buff);
 	r = close(fd1);
 	if (r == -1)
-		errorfd(fd1);
+		errorfd(fd1, buff);
 	r = close(fd2);
 	if (r == -1)
-		errorfd(fd2);
+		errorfd(fd2, buff);
 	free(buff);
 }
 /**
