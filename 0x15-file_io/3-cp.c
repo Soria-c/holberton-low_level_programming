@@ -27,7 +27,6 @@ void errorr(int e, const char *s)
 void errorfd(int fd)
 {
 	dprintf(2, "Error: Can't close fd %d\n", fd);
-	exit(100);
 }
 /**
  * file_copy - copies the contents from one file to another.
@@ -52,16 +51,20 @@ void file_copy(const char *file_from, const char *file_to)
 		if (r == -1)
 			errorr(98, file_from);
 		r2 = write(fd2, buff, r);
-		if (r2 == -1 || r2 != r)
+		if (r2 == -1 || r2)
 			errorr(99, file_to);
 
 	}
 	r = close(fd1);
 	r2 = close(fd2);
-	if (r2 == -1)
-		errorfd(fd2);
-	if (r == -1)
-		errorfd(fd1);
+	if (r == -1 || r2 == -1)
+	{
+		if (r2 == -1)
+			errorfd(fd2);
+		if (r == -1)
+			errorfd(fd1);
+		exit(100);
+	}
 }
 /**
  * main - checks number of arguments
