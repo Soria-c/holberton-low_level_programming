@@ -52,10 +52,18 @@ void file_copy(const char *file_from, const char *file_to)
 	for (; r; r = read(fd1, buff, 1024))
 	{
 		if (r == -1)
+		{
+			close(fd1);
+			close(fd2);
 			errorr(98, file_from);
+		}
 		r2 = write(fd2, buff, r);
 		if (r2 == -1 || r2 != r)
+		{
+			close(fd1);
+			close(fd2);
 			errorr(99, file_to);
+		}
 
 	}
 	r = close(fd1);
