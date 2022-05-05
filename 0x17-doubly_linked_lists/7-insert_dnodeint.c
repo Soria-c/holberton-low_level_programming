@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - inserts node at a given index
  * @h: address of linked list
@@ -10,7 +9,6 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new, *tmp = *h;
-
 	if (!(*h))
 		return (NULL);
 	new = malloc(sizeof(dlistint_t));
@@ -19,7 +17,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new->n = n;
 	if (!idx)
 	{
-		add_dnodeint(h, n);
+		new->next = *h;
+		new->prev = NULL;
+		(*h)->prev = new;
+		*h = new;
 		return (new);
 	}
 	for (; tmp->next && idx; tmp = tmp->next, idx--)
@@ -29,12 +30,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		free(new);
 		return (NULL);
 	}
-	if ((!(tmp->next) && idx))
-	{
-		add_dnodeint_end(&tmp, n);
-		return (new);
-	}
-	tmp = tmp->prev;
+	if (tmp->next || (!(tmp->next) && !idx))
+		tmp = tmp->prev;
 	new->next = tmp->next;
 	new->prev = tmp;
 	if (tmp->next)
