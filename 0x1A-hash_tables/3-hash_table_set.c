@@ -10,10 +10,13 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	unsigned long int index;
 	hash_node_t *new;
 
-	if (hash_table_check(ht, key))
+	if (!key || !ht)
+		return (0);
+	index = key_index((const unsigned char *)key, ht->size);
+	if (hash_table_check(ht, key, index))
 	{
 		free(ht->array[index]->value);
 		ht->array[index]->value = strdup(value);
@@ -39,11 +42,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * hash_table_check - checks if a key already exists in ht
  * @ht: address of a given hash table
  * @key: key of the element
+ * @index: index of key
  * Return: 1 if it exists, 0 otherwise
  */
-size_t hash_table_check(const hash_table_t *ht, const char *key)
+size_t
+hash_table_check(const hash_table_t *ht, const char *key, unsigned int index)
 {
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 	hash_node_t *node;
 
 	node = ht->array[index];
