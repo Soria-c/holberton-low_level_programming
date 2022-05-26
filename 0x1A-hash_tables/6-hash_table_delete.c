@@ -8,7 +8,6 @@
 void hash_table_delete(hash_table_t *ht)
 {
 	size_t i = 0;
-	hash_node_t *tmp = NULL;
 
 	for (; i < ht->size; i++)
 		freell(ht->array[i]);
@@ -19,7 +18,7 @@ void hash_table_delete(hash_table_t *ht)
 /**
  * freell - frees a linked list
  * @head: address of a given linked list
- */
+*/
 void freell(hash_node_t *head)
 {
 	hash_node_t *tmp = NULL;

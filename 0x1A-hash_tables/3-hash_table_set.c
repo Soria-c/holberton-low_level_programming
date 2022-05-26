@@ -10,7 +10,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index = key_index(key, ht->size);
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 	hash_node_t *new;
 
 	if (hash_table_check(ht, key))
@@ -43,7 +43,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  */
 size_t hash_table_check(const hash_table_t *ht, const char *key)
 {
-	unsigned long int index = key_index(key, ht->size);
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 	hash_node_t *node;
 
 	node = ht->array[index];
