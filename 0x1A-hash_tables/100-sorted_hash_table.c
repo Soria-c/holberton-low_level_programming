@@ -65,6 +65,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	new->next = ht->array[index];
 	ht->array[index] = new;
+    new->snext = NULL;
+    new->sprev = NULL;
 	shash_table_set_sort(ht, new);
 	return (1);
 }
@@ -135,7 +137,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	shash_node_t *node;
 
 	if (!key || !(*key) || !ht)
-		return (0);
+		return (NULL);
 	index = key_index((const unsigned char *)key, ht->size);
 	node = ht->array[index];
 
