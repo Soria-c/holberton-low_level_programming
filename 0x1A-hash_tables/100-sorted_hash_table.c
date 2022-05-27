@@ -35,7 +35,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	shash_node_t *new = NULL;
-
+	if (!key || !(*key) || !value || !ht)
+		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	if (hash_table_check_2(ht, key, index))
 	{
