@@ -11,10 +11,7 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *tmp = NULL, *tmp2 = NULL;
 
 	if (!ht)
-	{
-		printf("{}\n");
 		return;
-	}
 	printf("{");
 	for (; i < ht->size; i++)
 	{
