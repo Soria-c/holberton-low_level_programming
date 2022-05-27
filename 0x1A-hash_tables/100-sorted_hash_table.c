@@ -57,8 +57,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->value = strdup(value);
 	if (!new->value)
 	{
-		free(new);
 		free(new->key);
+		free(new);
 		return (0);
 	}
 	new->next = ht->array[index];
@@ -151,8 +151,6 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 */
 void shash_table_print(const shash_table_t *ht)
 {
-	size_t i = 0;
-
 	shash_node_t *tmp = NULL, *tmp2 = NULL;
 
 	if (!ht)
@@ -177,7 +175,6 @@ void shash_table_print(const shash_table_t *ht)
 */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	size_t i = 0;
 	shash_node_t *tmp = NULL, *tmp2 = NULL;
 
 	if (!ht)
