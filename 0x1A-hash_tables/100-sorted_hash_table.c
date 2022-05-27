@@ -65,8 +65,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	new->next = ht->array[index];
 	ht->array[index] = new;
-    new->snext = NULL;
-    new->sprev = NULL;
+	new->snext = NULL;
+	new->sprev = NULL;
 	shash_table_set_sort(ht, new);
 	return (1);
 }
@@ -78,9 +78,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
  */
 void shash_table_set_sort(shash_table_t *ht, shash_node_t *node)
 {
-	shash_node_t *tmp;
+	shash_node_t *t;
 
-	if (!ht->shead || ((*ht->shead->key) > *(node->key)))
+	if (!ht->shead || strcmp(ht->shead->key, node->key) > 0)
 	{
 		node->snext = ht->shead;
 		if (ht->shead)
@@ -90,14 +90,14 @@ void shash_table_set_sort(shash_table_t *ht, shash_node_t *node)
 	}
 	else
 	{
-		tmp = ht->shead;
-		for (; tmp->snext && (*(node->key) > *(tmp->snext->key)); tmp = tmp->snext)
+		t = ht->shead;
+		for (; t->snext && strcmp(node->key, t->snext->key) > 0; t = t->snext)
 			;
-		node->snext = tmp->snext;
-		if (tmp->snext)
-			tmp->snext->sprev = node;
-		node->sprev = tmp;
-		tmp->snext = node;
+		node->snext = t->snext;
+		if (t->snext)
+			t->snext->sprev = node;
+		node->sprev = t;
+		t->snext = node;
 	}
 	if (!node->snext)
 		ht->stail = node;
