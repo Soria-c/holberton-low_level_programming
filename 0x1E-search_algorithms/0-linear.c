@@ -28,5 +28,5 @@ int linear_search(int *array, size_t size, int value)
 
 	while ((++i < (int)size) && (value != array[i]))
 		print(i, array[i]);
-	return ((i == size) ? -1 : print(i, array[i]));
+	return ((i == (int)size) ? -1 : print(i, array[i]));
 }
