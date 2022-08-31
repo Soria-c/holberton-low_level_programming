@@ -11,8 +11,8 @@ void print2(int *array, size_t size)
 	int i = -1;
 
 	printf("Searching in array: ");
-	while (++i < size)
-		(i < size - 1) ? printf("%d, ", array[i]) : printf("%d", array[i]);
+	while (++i < (int)size)
+		(i < (int)size - 1) ? printf("%d, ", array[i]) : printf("%d", array[i]);
 	printf("\n");
 }
 
