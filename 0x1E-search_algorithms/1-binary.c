@@ -28,10 +28,9 @@ int binary_search(int *array, size_t size, int value)
 {
 	int f;
 
-	print2(array, size);
 	if (!array)
 		return (-1);
-
+	print2(array, size);
 	if (array[(size - 1) / 2] == value)
 		return ((size - 1) / 2);
 	if (size <= 1)
